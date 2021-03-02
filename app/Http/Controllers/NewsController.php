@@ -11,13 +11,15 @@ class NewsController extends Controller
     {
         $posts = Post::index();
         $recent_posts = Post::latest()->limit(3)->get();
-        return view('news', compact('posts', 'recent_posts'));
+        $title = 'News';
+        return view('news', compact('posts', 'recent_posts', 'title'));
     }
 
     public function show($slug)
     {
         $post = Post::getBySlug($slug);
         $posts = Post::latest()->limit(3)->get();
-        return view('detail_news', compact('post', 'posts'));
+        $title = $post->title;
+        return view('detail_news', compact('post', 'posts', 'title'));
     }
 }

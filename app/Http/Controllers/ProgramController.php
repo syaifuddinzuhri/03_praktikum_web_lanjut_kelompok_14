@@ -8,6 +8,7 @@ class ProgramController extends Controller
 {
     public function index()
     {
-        return view('program');
+        $title = 'Program';
+        return view('program', compact('title'));
     }
 }

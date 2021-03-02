@@ -13,7 +13,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view('contact-us');
+        $title = 'Contact Us';
+        return view('contact-us', compact('title'));
     }
 
     /**
